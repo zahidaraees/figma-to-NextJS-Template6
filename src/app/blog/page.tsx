@@ -1,14 +1,16 @@
 
 import ProductList from '../components/ProductList';
-import Hero from '../components/Hero';
+import Hero from '../components/HeroBlog';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import HeroBlog from '../components/HeroBlog';
 
 const Blog = () => {
   return (
     <div>
       
-      <Hero />
+      <HeroBlog />
+
 
       
       <main className="bg-gray-100 py-8">
