@@ -21,8 +21,7 @@ export default function Hero2() {
         </div>
       </section>
 
-      {/* Product List Section */}
-      <ProductList />
+      
     </div>
 
 

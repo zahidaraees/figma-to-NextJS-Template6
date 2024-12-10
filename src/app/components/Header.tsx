@@ -14,11 +14,11 @@ export default function Header() {
 </div>
 
 
-        <nav>
-          <ul className="flex space-x-6">
+        <nav className='Navbar'>
+          <ul className="flex space-x-7">
             <li><Link href="/">Home</Link></li>
             <li><Link href="/shop">Shop</Link></li>
-            <li><Link href="/about">Blog</Link></li>
+            <li><Link href="/blog">Blog</Link></li>
             <li><Link href="/contact">Contact</Link></li>
             <li><Link href="#"><Image src="/assets/signup.jpg" alt="Logo" width={20} height={15}/></Link></li>
             <li><Link href="#"><Image src="/assets/searchicon.png" alt="Logo" width={20} height={15}/></Link></li>
