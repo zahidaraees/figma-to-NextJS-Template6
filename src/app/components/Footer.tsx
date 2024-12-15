@@ -2,7 +2,7 @@
 export default function Footer() {
     return (
       
-      <footer className="text-gray-50 px-4 sm:px-6 pt-12 pb-5 font-[sans-serif]">
+      <footer className="text-gray-50 px-4 sm:px-6 pt-12 pb-5 width:1440 font-[sans-serif]">
         <hr />
         <br />
         <br />

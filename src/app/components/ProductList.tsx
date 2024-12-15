@@ -1,5 +1,6 @@
 // components/ProductList.tsx it will display list of product items. 
-import Image from "next/image";
+import Image from "next/image"; // For optimized image loading
+
 export default function ProductList() {
   return (
     <div>
@@ -14,8 +15,10 @@ export default function ProductList() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="bg-white rounded overflow-hidden shadow-md cursor-pointer hover:scale-[1.02] transition-all">
             <div className="w-full aspect-w-16 aspect-h-8 lg:h-80">
-              <img
+            <Image
                 src="../assets/dining.png"
+                width={285}
+                height={446}
                 alt="Product 1"
                 className="h-full w-full object-cover object-top"
               />
@@ -31,10 +34,13 @@ export default function ProductList() {
 
           <div className="bg-white rounded overflow-hidden shadow-md cursor-pointer hover:scale-[1.02] transition-all">
             <div className="w-full aspect-w-16 aspect-h-8 lg:h-80">
-              <img
+            <Image
                 src="../assets/Image-living room.png"
                 alt="Living"
                 className="h-full w-full object-cover object-top"
+                width={285}
+                height={446}
+                
               />
             </div>
 
@@ -46,11 +52,15 @@ export default function ProductList() {
 
           <div className="bg-white rounded overflow-hidden shadow-md cursor-pointer hover:scale-[1.02] transition-all">
             <div className="w-full aspect-w-16 aspect-h-8 lg:h-80">
-              <img
+            <Image
                 src="../assets/bedroom.png"
                 alt="Bedroom"
                 className="h-full w-full object-cover object-top"
+                width={285}
+                height={446}
+                
               />
+              
             </div>
 
             <div className="p-4 justify-center">

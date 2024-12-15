@@ -1,179 +1,183 @@
-// components/ProductList.tsx it will display list of product items. 
-import Image from "next/image";
+"use client";
+import { useState } from "react";
+import Image from "next/image"
+
 export default function Ourproducts() {
+  // Sample product data
+  const products = [
+    {
+      id: 1,
+      image: "../assets/Item01.png",
+      name: "Syltherine",
+      description: "Stylish cafe chair",
+      price: "Rp 2,500,000",
+      oldPrice: "Rp 3,500,000",
+    },
+    {
+      id: 2,
+      image: "../assets/product02.png",
+      name: "Leviosa",
+      description: "Stylish cafe chair",
+      price: "Rp 2,500,000",
+    },
+    {
+      id: 3,
+      image: "../assets/product03.png",
+      name: "Lolito",
+      description: "Luxury big sofa",
+      price: "Rp 7,000,000",
+      oldPrice: "Rp 14,000,000",
+    },
+    {
+      id: 4,
+      image: "../assets/product04a.png",
+      name: "Respira",
+      description: "Outdoor bar table and stool",
+      price: "Rp 500,000",
+    },
+    {
+      id: 5,
+      image: "../assets/product04.png",
+      name: "Grifo",
+      description: "Night Lamp",
+      price: "Rp 1,500,000",
+    },
+    {
+      id: 6,
+      image: "../assets/product05.png",
+      name: "Muggo",
+      description: "Small Mug",
+      price: "Rp 150,000",
+    },
+    {
+      id: 7,
+      image: "../assets/product07.png",
+      name: "Pingky",
+      description: "Cute bed set",
+      price: "Rp 7,000,000",
+    },
+    {
+      id: 8,
+      image: "../assets/product08.png",
+      name: "Potty",
+      description: "Minimal Flower Pot",
+      price: "Rp 500,000",
+    },
+    {
+    id: 9,
+      image: "../assets/Item01.png",
+      name: "Syltherine",
+      description: "Stylish cafe chair",
+      price: "Rp 2,500,000",
+      oldPrice: "Rp 3,500,000",
+    },
+    {
+      id: 10,
+      image: "../assets/product02.png",
+      name: "Leviosa",
+      description: "Stylish cafe chair",
+      price: "Rp 2,500,000",
+    },
+    {
+      id: 11,
+      image: "../assets/product03.png",
+      name: "Lolito",
+      description: "Luxury big sofa",
+      price: "Rp 7,000,000",
+      oldPrice: "Rp 14,000,000",
+    },
+    {
+      id: 12,
+      image: "../assets/product04a.png",
+      name: "Respira",
+      description: "Outdoor bar table and stool",
+      price: "Rp 500,000",
+    },
+    {
+      id: 13,
+      image: "../assets/product04.png",
+      name: "Grifo",
+      description: "Night Lamp",
+      price: "Rp 1,500,000",
+    },
+    {
+      id: 14,
+      image: "../assets/product05.png",
+      name: "Muggo",
+      description: "Small Mug",
+      price: "Rp 150,000",
+    },
+    {
+      id: 15,
+      image: "../assets/product07.png",
+      name: "Pingky",
+      description: "Cute bed set",
+      price: "Rp 7,000,000",
+    },
+    {
+      id: 16,
+      image: "../assets/product08.png",
+      name: "Potty",
+      description: "Minimal Flower Pot",
+      price: "Rp 500,000",
+    },
+  ];
+
+  // State to control how many products are shown
+  const [visibleCount, setVisibleCount] = useState(4);
+
+  // Function to load more products
+  const showMoreProducts = () => {
+    setVisibleCount((prevCount) => prevCount + 4);
+  };
+
   return (
-    <div>
-    
+    <div className="font-[sans-serif] bg-gray-100">
+      <div className="p-4 mx-auto lg:max-w-7xl sm:max-w-full">
+        <h2 className="flex justify-center text-4xl font-extrabold text-gray-800">
+          Our Products
+        </h2>
 
-      <div className="font-[sans-serif] bg-gray-100 ">
-        <div className="p-4 mx-auto lg:max-w-7xl sm:max-w-full ">
-          
-          <h2 className="flex justify-center text-4xl font-extrabold text-gray-800">
-            Our Products
-          </h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-xl:gap-4 gap-6">
-            <div className="bg-white rounded-2xl p-5 cursor-pointer hover:-translate-y-2 transition-all relative">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-xl:gap-4 gap-6 mt-6">
+          {products.slice(0, visibleCount).map((product) => (
+            <div
+              key={product.id}
+              className="bg-white rounded-2xl p-5 cursor-pointer hover:-translate-y-2 transition-all relative"
+            >
               <div className="w-5/6 h-[210px] overflow-hidden mx-auto aspect-w-16 aspect-h-8 md:mb-2 mb-4">
-                <img
-                  src="../assets/Item01.png"
-                  alt="Product 1"
+                <Image
+                  src={product.image}
+                  alt={product.name}                
                   className="h-full w-full object-contain"
+                  width={285}
+                height={446}
                 />
-              </div>
 
+              </div>
               <div>
                 <h3 className="text-lg font-extrabold text-gray-800">
-                  Syltherine
+                  {product.name}
                 </h3>
-                <p className="text-gray-600 text-sm mt-2">Stylish cafe chair</p>
+                <p className="text-gray-600 text-sm mt-2">{product.description}</p>
                 <h4 className="text-lg text-gray-800 font-bold mt-4">
-                  Rp 2,500,000 <s>Rp 3500,000</s>
+                  {product.price} {product.oldPrice && <s>{product.oldPrice}</s>}
                 </h4>
               </div>
             </div>
-
-            <div className="bg-white rounded-2xl p-5 cursor-pointer hover:-translate-y-2 transition-all relative">
-              <div className="w-5/6 h-[210px] overflow-hidden mx-auto aspect-w-16 aspect-h-8 md:mb-2 mb-4">
-                <img
-                  src="../assets/product02.png"
-                  alt="Product 2"
-                  className="h-full w-full object-contain"
-                />
-              </div>
-
-              <div>
-                <h3 className="text-lg font-extrabold text-gray-800">
-                  Leviosa
-                </h3>
-                <p className="text-gray-600 text-sm mt-2">Stylish cafe chair</p>
-                <h4 className="text-lg text-gray-800 font-bold mt-4">
-                  Rp 2,500,000
-                </h4>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-2xl p-5 cursor-pointer hover:-translate-y-2 transition-all relative">
-              <div className="w-5/6 h-[210px] overflow-hidden mx-auto aspect-w-16 aspect-h-8 md:mb-2 mb-4">
-                <img
-                  src="../assets/product03.png"
-                  alt="Product 3"
-                  className="h-full w-full object-contain"
-                />
-              </div>
-
-              <div>
-                <h3 className="text-lg font-extrabold text-gray-800">Lolito</h3>
-                <p className="text-gray-600 text-sm mt-2">Luxury big sofa</p>
-                <h4 className="text-lg text-gray-800 font-bold mt-4">
-                  Rp 7,000,000 <s>Rp 14,000.000</s>
-                </h4>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-2xl p-5 cursor-pointer hover:-translate-y-2 transition-all relative">
-              <div ></div>
-
-              <div className="w-5/6 h-[210px] overflow-hidden mx-auto aspect-w-16 aspect-h-8 md:mb-2 mb-4">
-                <img
-                  src="../assets/product04a.png"
-                  alt="Product 4"
-                  className="h-full w-full object-contain"
-                />
-              </div>
-
-              <div>
-                <h3 className="text-lg font-extrabold text-gray-800">
-                  Respira
-                </h3>
-                <p className="text-gray-600 text-sm mt-2">
-                  Outdoor bar table and stool
-                </p>
-                <h4 className="text-lg text-gray-800 font-bold mt-4">
-                  Rp 500,000
-                </h4>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-2xl p-5 cursor-pointer hover:-translate-y-2 transition-all relative">
-              <div className="w-5/6 h-[210px] overflow-hidden mx-auto aspect-w-16 aspect-h-8 md:mb-2 mb-4">
-                <img
-                  src="../assets/product04.png"
-                  alt="Product 3"
-                  className="h-full w-full object-contain"
-                />
-              </div>
-
-              <div>
-                <h3 className="text-lg font-extrabold text-gray-800">
-                  Grifo
-                </h3>
-                <p className="text-gray-600 text-sm mt-2">
-                  Night Lamp
-                </p>
-                <h4 className="text-lg text-gray-800 font-bold mt-4">Rp 1,500,000</h4>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-2xl p-5 cursor-pointer hover:-translate-y-2 transition-all relative">
-              <div className="w-5/6 h-[210px] overflow-hidden mx-auto aspect-w-16 aspect-h-8 md:mb-2 mb-4">
-                <img
-                  src="../assets/product05.png"
-                  alt="Product 3"
-                  className="h-full w-full object-contain"
-                />
-              </div>
-
-              <div>
-                <h3 className="text-lg font-extrabold text-gray-800">
-                  Muggo
-                </h3>
-                <p className="text-gray-600 text-sm mt-2">
-                  Small Mug
-                </p>
-                <h4 className="text-lg text-gray-800 font-bold mt-4">Rp 150,000</h4>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-2xl p-5 cursor-pointer hover:-translate-y-2 transition-all relative">
-              <div className="w-5/6 h-[210px] overflow-hidden mx-auto aspect-w-16 aspect-h-8 md:mb-2 mb-4">
-                <img
-                  src="../assets/product07.png"
-                  alt="Product 3"
-                  className="h-full w-full object-contain"
-                />
-              </div>
-
-              <div>
-                <h3 className="text-lg font-extrabold text-gray-800">Pingky</h3>
-                <p className="text-gray-600 text-sm mt-2">
-                  Cute bed set
-                </p>
-                <h4 className="text-lg text-gray-800 font-bold mt-4">Rp 7,000,000</h4>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-2xl p-5 cursor-pointer hover:-translate-y-2 transition-all relative">
-              <div className="w-5/6 h-[210px] overflow-hidden mx-auto aspect-w-16 aspect-h-8 md:mb-2 mb-4">
-                <img
-                  src="../assets/product08.png"
-                  alt="Product 3"
-                  className="h-full w-full object-contain"
-                />
-              </div>
-
-              <div>
-                <h3 className="text-lg font-extrabold text-gray-800">
-                  Potty
-                </h3>
-                <p className="text-gray-600 text-sm mt-2">
-                  Minimal Flower Pot
-                </p>
-                <h4 className="text-lg text-gray-800 font-bold mt-4">Rp 500,000</h4>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
+
+        {/* Show More Button */}
+        {visibleCount < products.length && (
+          <div className="flex justify-center mt-6">
+            <button
+              onClick={showMoreProducts}
+              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all"
+            >
+              Show More
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

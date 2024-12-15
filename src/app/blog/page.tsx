@@ -1,26 +1,75 @@
-
-import ProductList from '../components/ProductList';
-import Hero from '../components/HeroBlog';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import HeroBlog from '../components/HeroBlog';
+"use client";
+import React, { useState } from "react";
+import BlogCard from "../components/BlogCard";
+import Sidebar from "../components/Sidebar";
+import Footer from "../components/Footer2";
+import HeroSection2 from "../components/Herosection2";
 
 const Blog = () => {
+  const allBlogs = [
+    {
+      image: "/assets/blog1.png",
+      title: "Going all-in with millennial design",
+      category: "Wood",
+      date: "14 Oct 2022",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+    },
+    {
+      image: "/assets/blog2.png",
+      title: "Exploring new ways of decorating",
+      category: "Handmade",
+      date: "14 Oct 2022",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+    },
+    {
+      image: "/assets/blog3.png",
+      title: "Handmade pieces that took time to make",
+      category: "Wood",
+      date: "14 Oct 2022",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+    },
+  ];
+
+  const [filteredBlogs, setFilteredBlogs] = useState(allBlogs);
+
+  // Filter posts by category
+  const handleCategoryClick = (category: string) => {
+    const filtered = allBlogs.filter((blog) => blog.category === category);
+    setFilteredBlogs(filtered);
+  };
+
+  // Show single post on click (Recent Posts)
+  const handleRecentPostClick = (title: string) => {
+    const filtered = allBlogs.filter((blog) => blog.title === title);
+    setFilteredBlogs(filtered);
+  };
+
   return (
-    <div>
-      
-      <HeroBlog />
+    <>
+      <HeroSection2 title="Blog" breadcrumb="Home > Blog" />
 
+      <div className="container mx-auto p-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+        {/* Blog Post Section */}
+        <section className="md:col-span-3">
+          {filteredBlogs.length > 0 ? (
+            filteredBlogs.map((blog, index) => <BlogCard key={index} {...blog} />)
+          ) : (
+            <p className="text-center text-gray-500">No posts available.</p>
+          )}
+        </section>
 
-      
-      <main className="bg-gray-100 py-8">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {/* Repeat ProductCard as necessary */}
-        </div>
-      </main>
-      
+        {/* Sidebar Section */}
+        <section>
+          <Sidebar
+            onCategoryClick={handleCategoryClick}
+            onRecentPostClick={handleRecentPostClick}
+            recentPosts={allBlogs} // Pass allBlogs for Recent Posts
+          />
+        </section>
+      </div>
 
-    </div>
+      <Footer />
+    </>
   );
 };
 

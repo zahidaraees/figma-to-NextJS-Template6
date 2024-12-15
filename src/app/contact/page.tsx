@@ -1,13 +1,15 @@
-import Image from "next/image";
-import Header from '../components/Header'
-import Hero from '../components/Hero3';
-import Footer from '../components/Footer';
+import Footer2 from "../components/Footer2";
+import HeroSection2 from "../components/Herosection2";
+
 
 
 export default function contact() {
   return (
     <div>
-        <Hero />
+        <HeroSection2 
+              title="Contact" 
+              breadcrumb="Home > Contact" 
+            />
         
 
       <div className="grid sm:grid-cols-2 items-start gap-16 p-4 mx-auto max-w-4xl bg-white font-[sans-serif]">
@@ -51,8 +53,10 @@ export default function contact() {
                     className="text-white bg-blue-500 hover:bg-blue-600 tracking-wide rounded-md text-sm px-4 py-3 w-full !mt-6">Submit</button>
             </form>
         </div>
-      
+        <Footer2 />  
     </div>
+    
+    
   );
 }
 
