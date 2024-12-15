@@ -8,21 +8,21 @@ import HeroSection2 from "../components/Herosection2";
 const Blog = () => {
   const allBlogs = [
     {
-      image: "/assets/blog1.png",
+      image: "/assets/Blog1.png",
       title: "Going all-in with millennial design",
       category: "Wood",
       date: "14 Oct 2022",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
     },
     {
-      image: "/assets/blog2.png",
+      image: "/assets/Blog2.png",
       title: "Exploring new ways of decorating",
       category: "Handmade",
       date: "14 Oct 2022",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
     },
     {
-      image: "/assets/blog3.png",
+      image: "/assets/Blog3.png",
       title: "Handmade pieces that took time to make",
       category: "Wood",
       date: "14 Oct 2022",
