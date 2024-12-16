@@ -1,39 +1,24 @@
-// components/ProductComparisonTable.tsx
-import Image from 'next/image';
-
 const ProductComparisonTable = () => {
   return (
-    <div className="max-w-7xl mx-auto p-6 bg-white shadow-md rounded-lg">
-      <table className="min-w-full table-auto">
+    <div className="container mx-auto px-4 py-8">
+      <table className="w-full border-collapse border border-gray-300">
         <thead>
-          <tr className="border-b">
-            <th className="py-2 px-4 text-left">Product</th>
-            <th className="py-2 px-4 text-left">Feature 1</th>
-            <th className="py-2 px-4 text-left">Feature 2</th>
-            <th className="py-2 px-4 text-left">Feature 3</th>
-            <th className="py-2 px-4 text-left">Price</th>
+          <tr className="bg-gray-100">
+            <th className="p-4">General</th>
+            <th className="p-4">Asgaard Sofa</th>
+            <th className="p-4">Outdoor Sofa Set</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td className="py-4 px-4 flex items-center">
-              <Image src="/product1.jpg" alt="Product 1" width={50} height={50} />
-              <span className="ml-4">Product 1</span>
-            </td>
-            <td className="py-4 px-4">Feature 1 description</td>
-            <td className="py-4 px-4">Feature 2 description</td>
-            <td className="py-4 px-4">Feature 3 description</td>
-            <td className="py-4 px-4">$199.99</td>
+            <td className="border p-4">Sales Package</td>
+            <td className="border p-4">1 sectional sofa</td>
+            <td className="border p-4">1 Three Seater, 2 Single Seater</td>
           </tr>
           <tr>
-            <td className="py-4 px-4 flex items-center">
-              <Image src="/product2.jpg" alt="Product 2" width={50} height={50} />
-              <span className="ml-4">Product 2</span>
-            </td>
-            <td className="py-4 px-4">Feature 1 description</td>
-            <td className="py-4 px-4">Feature 2 description</td>
-            <td className="py-4 px-4">Feature 3 description</td>
-            <td className="py-4 px-4">$249.99</td>
+            <td className="border p-4">Weight</td>
+            <td className="border p-4">45 KG</td>
+            <td className="border p-4">65 KG</td>
           </tr>
         </tbody>
       </table>
