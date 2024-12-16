@@ -30,7 +30,7 @@ const ImageGallery = () => {
             <Image
               src={image.src}
               alt={image.alt}
-              layout="fill" // Automatically fills the container
+              fill // Automatically fills the container
               objectFit="cover" // Ensures the image maintains aspect ratio
               className="hover:scale-105 transition-transform duration-300"
             />

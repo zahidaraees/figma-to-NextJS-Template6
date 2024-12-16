@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import Ourproducts from "../components/OurProducts";
 
 const ProductDetails = () => {
   const [quantity, setQuantity] = useState(1);
@@ -230,27 +231,27 @@ const ProductDetails = () => {
                 and durability. <br />
                 ⭐⭐⭐⭐ - Stylish and sturdy sofa. Worth the price!
               </p>
-              <div className="flex space-x-4 mt-6">
+              <div className="flex flex-wrap gap-4 mt-6">
                 <Image
-                  src="/assets/review_image1.png"
+                  src="/assets/sofa_description1.png"
                   alt="Review Image 1"
                   width={400}
                   height={300}
-                  className="w-full rounded-lg"
+                  className="w-full sm:w-1/2 rounded-lg"
                 />
                 <Image
-                  src="/assets/review_image2.png"
+                  src="/assets/sofa_description2.png"
                   alt="Review Image 2"
                   width={400}
                   height={300}
-                  className="w-full rounded-lg"
+                  className="w-full sm:w-1/2 rounded-lg"
                 />
               </div>
             </>
           )}
         </div>
       </section>
-
+      <Ourproducts />
       {/* Footer */}
     </>
   );
