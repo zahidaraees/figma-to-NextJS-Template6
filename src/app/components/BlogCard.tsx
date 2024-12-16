@@ -18,7 +18,7 @@ const BlogCard = ({ image, title, category, date, description }: BlogCardProps) 
         <Image
           src={image}
           alt={title}
-          layout="fill" // Ensures the image fills the parent container
+          fill
           objectFit="cover" // Maintains aspect ratio and fills container
           className="rounded-t-lg md:rounded-t-none md:rounded-l-lg"
         />

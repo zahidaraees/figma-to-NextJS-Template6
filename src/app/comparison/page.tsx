@@ -211,13 +211,13 @@ const Comparison = () => {
             <div></div>
             <button
               className="bg-yellow-500 text-white py-2 px-4 rounded"
-              onClick={() => handleRedirect('https://example.com/product2')}
+              onClick={() => handleRedirect('/cart')}
             >
               Add To Cart
             </button>
             <button
               className="bg-yellow-500 text-white py-2 px-4 rounded"
-              onClick={() => handleRedirect('https://example.com/product3')}
+              onClick={() => handleRedirect('/cart')}
             >
               Add To Cart
             </button>

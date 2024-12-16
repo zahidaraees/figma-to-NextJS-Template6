@@ -21,7 +21,7 @@ export default function Cart() {
     0
   );
 
-  const handleQuantityChange = (id:any, quantity:any) => {
+  const handleQuantityChange = (id:number, quantity:number) => {
 
     setCartItems((prevItems) =>
       prevItems.map((item) =>
