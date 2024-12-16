@@ -21,7 +21,8 @@ export default function Cart() {
     0
   );
 
-  const handleQuantityChange = (id: number, quantity: number) => {
+  const handleQuantityChange = (id:any, quantity:any) => {
+
     setCartItems((prevItems) =>
       prevItems.map((item) =>
         item.id === id ? { ...item, quantity: Math.max(1, quantity) } : item
@@ -59,19 +60,23 @@ export default function Cart() {
                     className="flex justify-center p-2 rounded-md"
                     style={{ backgroundColor: "#FAF3EA" }}
                   >
-                    <Image
-                      src={item.image}
-                      alt={item.name}
-                      width={80}
-                      height={80}
-                      className="rounded-md"
-                    />
+                    <Link href="/product/asgaard-sofa">
+                      <Image
+                        src={item.image}
+                        alt={item.name}
+                        width={80}
+                        height={80}
+                        className="rounded-md cursor-pointer"
+                      />
+                    </Link>
                   </div>
                   {/* Product Name */}
                   <div className="ml-4">
-                    <h2 className="text-lg font-semibold md:text-left text-center">
-                      {item.name}
-                    </h2>
+                    <Link href="/productdetail">
+                      <h2 className="text-lg font-semibold md:text-left text-center text-blue-500 hover:underline cursor-pointer">
+                        {item.name}
+                      </h2>
+                    </Link>
                   </div>
                   {/* Product Price */}
                   <div className="text-center md:text-left">
